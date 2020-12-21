@@ -24,8 +24,8 @@ class CheckBoxFrame extends JFrame
         add(textField);
 
         boldJCheckBox = new JCheckBox("Bold");
-        italicJCheckBox = new JCheckBox("italic");
         add(boldJCheckBox);
+        italicJCheckBox = new JCheckBox("italic");
         add(italicJCheckBox);
 
         CheckBoxHandler handler = new CheckBoxHandler();
@@ -36,7 +36,7 @@ class CheckBoxFrame extends JFrame
     private class CheckBoxHandler implements ItemListener
     {
         private int valBold = Font.PLAIN;
-        private int valItalic = Font.ITALIC;
+        private int valItalic = Font.PLAIN;
 
         public void itemStateChanged(ItemEvent event)
         {
