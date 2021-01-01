@@ -1,47 +1,26 @@
-import java.awt.*;
-import java.util.List;
-import java.util.Scanner;
-
-
-public class TestClass {
-
-    public static String getSmallestAndLargest(String s, int k) {
-        String smallest = "";
-        String largest = "";
-        String arr[] = new String[s.length()-k+1];
-
-        for(int i=0;i+k<s.length()+1;i++)
-        {
-            arr[i] = s.substring(i,i+k);
-        }
-        String sm = arr[0];
-        String la = arr[0];
-        for(int i=0;i<arr.length;i++)
-        {
-            if(sm.compareTo(arr[i])>0)
-            {
-                sm=arr[i];
+import static java.lang.Math.*;
+import java.util.*;
+public class TestClass{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        char[] ch = s.toCharArray();
+        Stack<Character> st = new Stack<>();
+        for(int i = 0;i<ch.length;i++){
+            if(st.isEmpty() || st.peek() != ch[i]){
+                st.push(ch[i]);
             }
-            if(la.compareTo(arr[i])<0)
-            {
-                la=arr[i];
+            else{
+                st.pop();
             }
         }
-        smallest=sm;
-        largest=la;
+        StringBuilder sb = new StringBuilder();
+        while(!st.isEmpty()){
+            sb.append(st.pop());
+        }
+        System.out.println(sb.reverse().toString());
 
 
-
-        return smallest + "\n" + largest;
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String s = scan.next();
-        int k = scan.nextInt();
-        scan.close();
-
-        System.out.println(getSmallestAndLargest(s, k));
     }
 }

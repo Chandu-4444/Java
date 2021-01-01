@@ -13,15 +13,22 @@ import javax.swing.*;
         private JPasswordField userPassword;
         private JButton submitButton;
         private JFrame frame;
+        private JLabel userLabel;
+        private JLabel passwordLabel;
         Connection conn;
 
         public void CreateUI()
         {
             frame = new JFrame("Credentials");
 
+            userLabel =  new JLabel("Username: ");
+            frame.add(userLabel);
 
             userName = new JTextField(10);
             frame.add(userName);
+
+            passwordLabel = new JLabel("Password: ");
+            frame.add(passwordLabel);
 
             userPassword = new JPasswordField(10);
             frame.add(userPassword);
