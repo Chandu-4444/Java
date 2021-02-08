@@ -1,4 +1,4 @@
-package gui;
+//package gui;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
@@ -18,8 +18,8 @@ class ButtonFrame extends JFrame
         plainJButton = new JButton("Plain Button");
         add(plainJButton);
 
-        ImageIcon bug1 = new ImageIcon(getClass().getResource("../correct.png"));
-        Icon bug2 = new ImageIcon(getClass().getResource("../cross.png"));
+        ImageIcon bug1 = new ImageIcon(getClass().getResource("correct.png"));
+        Icon bug2 = new ImageIcon(getClass().getResource("cross.png"));
 
         fancyJButton = new JButton("Fancy Button", bug1);
         fancyJButton.setRolloverIcon(bug2);

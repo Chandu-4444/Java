@@ -1,4 +1,4 @@
-package gui;
+//package gui;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
@@ -7,37 +7,56 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
 
 class TextFieldFrame extends JFrame
 {
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
-    private JPasswordField passwordField;
+    private JTextField textField4;
+    private JLabel label1;
+    private JLabel label2;
+    private JLabel label3;
+    private JLabel label4;
+    private JButton computeJButton;
+    private JButton resetJButton;
 
     public TextFieldFrame()
     {
         super("Testing JTextField nad JPasswordField");
         setLayout(new FlowLayout());
 
+        label1 = new JLabel("Length:   ");
+        add(label1);
         textField1 = new JTextField(10);
         add(textField1);
 
-        textField2 = new JTextField("Enter your text here");
+        label2 = new JLabel("Breadth:  ");
+        add(label2);
+        textField2 = new JTextField(10);
         add(textField2);
 
-        textField3 = new JTextField("Uneditable text field", 21);
-        textField3.setEditable(false);
+        label3 = new JLabel("Area:     ");
+        add(label3);
+        textField3 = new JTextField(10);
         add(textField3);
 
-        passwordField = new JPasswordField("Hiddden Text");
-        add(passwordField);
+        label4 = new JLabel("Perimeter:");
+        add(label4);
+        textField4 = new JTextField(10);
+        add(textField4);
+
+        computeJButton = new JButton("Compute");
+        add(computeJButton);
 
         TextFieldHandler handler = new TextFieldHandler();
         textField1.addActionListener(handler);
         textField2.addActionListener(handler);
         textField3.addActionListener(handler);
-        passwordField.addActionListener(handler);
+        textField4.addActionListener(handler);
 
 
     }
@@ -62,7 +81,7 @@ class TextFieldFrame extends JFrame
             {
                 string = String.format("textField3: %s",event.getActionCommand());
             }
-            else if(event.getSource() == passwordField)
+            else if(event.getSource() == textField4)
             {
                 string = String.format("passWordField: %s",event.getActionCommand());
             }
@@ -77,9 +96,8 @@ public class TextField
     public static void main(String args[])
     {
         TextFieldFrame frame = new TextFieldFrame();
-        System.out.println(frame.getClass().getMethods().length);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(350,100);
+        frame.setSize(200,200);
         frame.setVisible(true);
     }
 }
